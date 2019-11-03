@@ -25,7 +25,8 @@ assert_pico2000_ok(status["set_mains"])
 # set up channel
 # therocouples types and int8 equivalent
 # B=66 , E=69 , J=74 , K=75 , N=78 , R=82 , S=83 , T=84 , ' '=32 , X=88 
-for i in range(1,4):
+# Loop start
+for i in range(1,4): # i is a Tc channel.
   typeK = ctypes.c_int8(75)
   status["set_channel"] = tc08.usb_tc08_set_channel(chandle, i, typeK)
   assert_pico2000_ok(status["set_channel"])
@@ -43,7 +44,7 @@ for i in range(1,4):
 
 # print data
   print("Cold Junction ", temp[0]," Channel 1 ", temp[i])
-
+# Loop ends
 
 # close unit
 status["close_unit"] = tc08.usb_tc08_close_unit(chandle)
